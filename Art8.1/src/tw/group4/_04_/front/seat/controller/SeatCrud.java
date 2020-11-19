@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,10 @@ public class SeatCrud {
 //	}
 	@RequestMapping(path = "/04/seatSearch.ctrl", method = RequestMethod.GET)
 //	public String seatSearch(@ModelAttribute("actid")int actid,Model model) {
-	public String seatSearch(Model model,HttpSession session) {
+	public String seatSearch(Model model ,HttpSession session) {
+//		HttpSession session = request.getSession();
+//		String actidsString=(String) session.getAttribute("actid");
+//		System.out.println("actid = "+actidsString);		
 		int actid =Integer.parseInt((String) session.getAttribute("actid"));
 		System.out.println("actid = "+actid);
 		Map<String, Integer>seatMap=seatBeanService.select(actid);

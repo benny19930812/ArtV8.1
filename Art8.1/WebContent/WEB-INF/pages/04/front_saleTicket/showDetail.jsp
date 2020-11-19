@@ -1,3 +1,4 @@
+<%@page import="tw.group4._04_.front.shopcart.model.Shoppingcart"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -52,26 +53,27 @@ td {
 </head>
 
 <body>
-<%-- 	<jsp:include page="/fragment/top.jsp" /> --%>
+
 <div class="container">
 
-		<form name="order" action="<c:url value='/04/seatSearch.ctrl'/>" method="get">
+		<form name="order" action="<c:url value='/04/booking'/>" method="get">
 
 		<!-- 用param.取，相當於request.getParameter-->
 		<c:set var="actid" value="${param.actid}" scope="session"/>
+		<jsp:useBean id="shoppingCart" class="tw.group4._04_.front.shopcart.model.Shoppingcart" /> 
 <%-- 		<c:set var="title" value="${param.title}" scope="session" /> --%>
 <%-- 		<c:set var="description" value="${param.description}" /> --%>
-		<H1>節目詳細</H1>
-		<H2>節目名稱:</H2>		
-		<H2>${param.title}</H2>
-		<H2>地點:</H2>		
-		<H2>${param.site}</H2>
+		
+		<H1>節目詳細 </H1>
+		<H2>節目名稱: ${param.title}</H2>	
+		<jsp:setProperty name="" property="TITLE">	
+		<H2>地點: ${param.site}</H2>		
 <!-- 		<H2>主辦單位:</H2>		 -->
 <%-- 		<H2>${}</H2> --%>
 <!-- 		<H2>演出單位:</H2>		 -->
 <%-- 		<H2>${}</H2> --%>
-		<H2>活動日期:</H2>		
-		<H2>${param.startdate} ~ ${param.enddate}</H2>
+		<H2>活動日期: ${param.startdate} ~ ${param.enddate}</H2>		
+
 		
 		
 		節目簡介:

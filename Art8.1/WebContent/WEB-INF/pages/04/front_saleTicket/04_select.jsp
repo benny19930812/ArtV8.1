@@ -14,7 +14,7 @@
 }
 
 .date {
-	width: 200px;
+	width: 250px;
 }
 
 .title {

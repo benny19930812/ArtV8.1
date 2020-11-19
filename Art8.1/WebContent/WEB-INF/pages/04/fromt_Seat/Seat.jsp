@@ -48,14 +48,14 @@
 		<div class="progress">
 <!-- 		28  -->
 		<a class="process-wizard-dot"></a>
-  		<div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 3%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+  		<div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 28%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 		</div>
 	</td>
 
 	</tr>
 	<tr>
-		<td>選擇區域</td>
-		<td>選擇張數</td>
+		<td>區域/張數</td>
+		<td>劃位</td>
 		<td>購票確認</td>
 		<td>完成訂購</td>
 	</tr>
@@ -160,7 +160,7 @@
 			<td><img src="<c:url value='/images/04/sofaTick.png' />" alt="" title=""class="sofademo">已加入購物車</td>
 		</tr>
 	</table>
-	<form name="order" action="<c:url value='/04/booking'/>" method="get">
+	<form name="order" action="<c:url value='/04/booking2'/>" method="get">
 	<br><br><input type="submit" class="btn btn-outline-info" value="下一步">
 	</form>
 </div>	
