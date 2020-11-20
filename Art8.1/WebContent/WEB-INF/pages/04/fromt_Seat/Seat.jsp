@@ -36,6 +36,7 @@
 	<c:set var="seat" value="${requestScope.seat}" />
 
 <div class="container">
+<form name="order" action="<c:url value='/04/shoppingcart.ctrl'/>" method="get">
 	<table>
 	<tr >
 		<td class="progressbar">Step 1</td>
@@ -71,13 +72,17 @@
 		<td id="showseat" ></td>
 	</tr>
 	<tr id="selectseattr" >
-		<td>已選擇的排號資訊 </td>
+		<td>已選擇的座位資訊 </td>
 		<td id="selectseat"></td>
-		<input type="hidden" value="" id=""/>
+<!-- 		<input type="hidden" value="" id="" name="seat1"/> -->
+<!-- 		<input type="hidden" value="" id="" name="seat2"/> -->
+<!-- 		<input type="hidden" value="" id="" name="seat3"/> -->
+<!-- 		<input type="hidden" value="" id="" name="seat4"/> -->
 	</tr>
 	<tr>
 		<td>已選擇座位數量</td>
 		<td id="selectnum"></td>
+		<input type="hidden" value="" id="selectnum2" name="selectnum2"/>
 	</tr>
 	</table>
 
@@ -160,7 +165,7 @@
 			<td><img src="<c:url value='/images/04/sofaTick.png' />" alt="" title=""class="sofademo">已加入購物車</td>
 		</tr>
 	</table>
-	<form name="order" action="<c:url value='/04/booking2'/>" method="get">
+	
 	<br><br><input type="submit" class="btn btn-outline-info" value="下一步">
 	</form>
 </div>	
@@ -184,11 +189,16 @@
  		}).click(function() {
  			if ($(this).attr("src") == "<c:url value='/images/04/sofaOff.png' />") {
  	 			//換成選取座位圖
- 				$(this).attr("src", "<c:url value='/images/04/sofaTick.png' />")				
+ 				$(this).attr("src", "<c:url value='/images/04/sofaTick.png' />")		
+ 				//新增td		
  				$("#selectseat").append("<td class='seat' id='td"+$(this).attr('id')+"'>"+$(this).attr('id')+"<td>");
+ 				$("#selectseat").append("<input type='hidden' name='seat' value='"+$(this).attr('id')+"'/>");				
+				//顯示數量
  				$("#selectnum").text($(".seat").length);
- 				if ($(".seat").length ==5) {
- 					alert("最多選擇五個座位");
+ 				$("#selectnum2").val($(".seat").length); 				
+ 				if ($(".seat").length ==4) {
+ 					alert("已經選擇四個座位");
+ 					
 				}
  			} else {
  	 			//換回空位

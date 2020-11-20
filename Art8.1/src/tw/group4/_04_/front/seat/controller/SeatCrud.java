@@ -23,6 +23,7 @@ import tw.group4._04_.back.model.ShowBean;
 import tw.group4._04_.front.seat.model.SeatBean;
 import tw.group4._04_.front.seat.model.SeatBeanDAO;
 import tw.group4._04_.front.seat.model.SeatBeanService;
+import tw.group4._04_.front.shopcart.model.Shoppingcart;
 import tw.group4.util.IdentityFilter;
 
 @Controller
@@ -32,24 +33,19 @@ public class SeatCrud {
 	private SeatBean seatBean;
 	@Autowired
 	private SeatBeanService seatBeanService;
+	@Autowired
+	private Shoppingcart shoppingcart;
 	
-	//search seat
-//	@RequestMapping(path = "/04/seatSearch.ctrl", method = RequestMethod.GET)
-//	@ResponseBody 
-//	public Object seatSearch(Model model) {
-//		int actno = 1;
-//		Map<String, Integer>seatMap=seatBeanService.select(actno);
-//		System.out.println(seatMap);
-//			return seatMap;
-//	}
+
 	@RequestMapping(path = "/04/seatSearch.ctrl", method = RequestMethod.GET)
-//	public String seatSearch(@ModelAttribute("actid")int actid,Model model) {
-	public String seatSearch(Model model ,HttpSession session) {
-//		HttpSession session = request.getSession();
-//		String actidsString=(String) session.getAttribute("actid");
-//		System.out.println("actid = "+actidsString);		
+	public String seatSearch(Model model ,HttpSession session,Integer adultnum,Integer halfnum) {
 		int actid =Integer.parseInt((String) session.getAttribute("actid"));
-		System.out.println("actid = "+actid);
+		shoppingcart.setACT_ID(actid);
+		shoppingcart.setTITLE((String)(session.getAttribute("title")));
+		shoppingcart.setADULT_NUM(adultnum);
+		shoppingcart.setHALF_NUM(halfnum);
+		//shoppingcart存入session
+		session.setAttribute("shoppingcart",shoppingcart);
 		Map<String, Integer>seatMap=seatBeanService.select(actid);
 		System.out.println(seatMap);
 		model.addAttribute("seat", seatMap);

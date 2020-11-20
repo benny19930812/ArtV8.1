@@ -87,19 +87,19 @@ td {
 	<form name="order" action="<c:url value='/04/seatSearch.ctrl'/>" method="get">
 
 		<!-- 用param.取，相當於request.getParameter-->
-<%-- 		<c:set var="title" value="${param.title}" scope="session" /> --%>
+<%-- 		<c:set var="title" value="${param.title}" /> --%>
 <%-- 		<c:set var="description" value="${param.description}" /> --%>
 <%-- 	<c:set var="actid" value="${param.actid}" scope="session"/> --%>
 		<H1>節目詳細</H1>
 		節目名稱:
-		<P>${title}</P>
+		<P>${sessionScope.title}</P>
 		節目簡介:
-		<P>${description}</P><br><br>
+		<P>${sessionScope.description}</P><br><br>
 		
 		<H2>訂購票券</H2>
 		<table class="table table-bordered">
 		<tr> 
-				<td class="title">節目名稱</td>
+				<td>節目名稱</td>
 				<td>票種</td>
 				<td>座位</td>
 				<td>票價</td>
@@ -107,7 +107,7 @@ td {
 
 			</tr>
 			<tr> 
-				<td class="title"></td>
+				<td class="title">${sessionScope.title}</td>
 				<td>半票</td>
 				<td>自行劃位</td>
 				<td>NT$1000</td>
@@ -117,7 +117,7 @@ td {
 				</td>
 			</tr>
 						<tr> 
-				<td class="title"></td>
+				<td class="title">${sessionScope.title}</td>
 				<td>全票</td>
 				<td>自行劃位</td>
 				<td>NT$2000</td>
@@ -202,7 +202,7 @@ td {
 					$("#adultnum").val(count);
 					$("#plus").click(
 							function() {
-								//設定數量上限為5
+								//設定數量上限為4
 								if (count < 4) {
 									count++;
 								} else if (count = 4) {

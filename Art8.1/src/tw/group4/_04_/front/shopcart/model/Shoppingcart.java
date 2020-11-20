@@ -1,19 +1,30 @@
 package tw.group4._04_.front.shopcart.model;
 
-public class Shoppingcart {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+
+@Component("Shoppingcart")
+public class Shoppingcart implements Serializable {
 	
 	private String ORDERID;
 	private String NAME;
 	private String EMAIL;
 	private String TEL;
 	private String ADDRESS;
-	private String ACT_ID;
+	private int ACT_ID;
 	private String TITLE;
 	private int ADULT_NUM;
 	private int HALF_NUM;
 	private int TOTALPRICE;
 	private String seatnum;
-	
+	private String seats[];
+
+
 	public Shoppingcart(){
 		
 	}
@@ -49,11 +60,11 @@ public class Shoppingcart {
 	public void setADDRESS(String aDDRESS) {
 		ADDRESS = aDDRESS;
 	}
-	public String getACT_ID() {
+	public int getACT_ID() {
 		return ACT_ID;
 	}
-	public void setACT_ID(String aCT_ID) {
-		ACT_ID = aCT_ID;
+	public void setACT_ID(int actid) {
+		ACT_ID = actid;
 	}
 	public String getTITLE() {
 		return TITLE;
@@ -86,6 +97,13 @@ public class Shoppingcart {
 		this.seatnum = seatnum;
 	}
 	
-	
+	public String[] getSeats() {
+		return seats;
+	}
+
+
+	public void setSeats(String[] seats) {
+		this.seats = seats;
+	}
 	
 }
