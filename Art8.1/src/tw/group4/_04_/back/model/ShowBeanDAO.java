@@ -78,10 +78,24 @@ public class ShowBeanDAO {
 			// "From ShowBean"為createQuery
 			//
 			Session session = sessionFacory.getCurrentSession();
-			Query<ShowBean> query = session.createQuery("From ShowBean SB ORDER BY SB.ACT_STARTDATE", ShowBean.class);
+//			Query<ShowBean> query = session.createQuery("From ShowBean SB ORDER BY SB.ACT_STARTDATE", ShowBean.class);
+			Query<ShowBean> query = session.createQuery("SELECT SB.ACT_NO, SB.ACT_TITLE, SB.ACT_CATEGORY, SB.ACT_LOCATION_NAME, SB.ACT_DESCRIPTION, SB.ACT_STARTDATE, SB.ACT_ENDDATE  From ShowBean AS SB ORDER BY SB.ACT_STARTDATE", ShowBean.class);
 			List<ShowBean> list = query.list();
 			return list;
 		}
+		
+		// 查詢分類  開始日期排序
+				public List<ShowBean> selectAll_category(int category) {
+					// "From ShowBean"為createQuery
+					//
+					Session session = sessionFacory.getCurrentSession();
+					Query<ShowBean> query = session.createQuery("From ShowBean SB where SB.ACT_CATEGORY="+category+"ORDER BY SB.ACT_STARTDATE", ShowBean.class);
+					List<ShowBean> list = query.list();
+					return list;
+				}
+		
+		
+		
 		// 查詢多筆 結束日期排序
 		public List<ShowBean> selectAll_enddate() {
 			// "From ShowBean"為createQuery

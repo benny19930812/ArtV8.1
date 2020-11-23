@@ -59,10 +59,10 @@ td {
 		<form name="order" action="<c:url value='/04/booking'/>" method="get">
 
 		<!-- 用param.取，相當於request.getParameter-->
-		<c:set var="actid" value="${param.actid}" scope="session"/>
-		<c:set var="title" value="${param.title}" scope="session" />
-		<c:set var="site" value="${param.site}" scope="session" />
-		<c:set var="description" value="${param.description}" scope="session" />
+<%-- 		<c:set var="actid" value="${param.actid}" scope="session"/> --%>
+<%-- 		<c:set var="title" value="${param.title}" scope="session" /> --%>
+<%-- 		<c:set var="site" value="${param.site}" scope="session" /> --%>
+<%-- 		<c:set var="description" value="${param.description}" scope="session" /> --%>
 <%-- 		<jsp:useBean id="shoppingCart" class="tw.group4._04_.front.shopcart.model.Shoppingcart" scope="session"/>  --%>
 <%-- 		<jsp:setProperty name="shoppingCart" property="*"/> --%>
 		
@@ -76,19 +76,50 @@ td {
 <%-- 		<H2>${}</H2> --%>
 <!-- 		<H2>演出單位:</H2>		 -->
 <%-- 		<H2>${}</H2> --%>
-		<H2>活動日期: ${param.startdate} ~ ${param.enddate}</H2>		
+		<H2>活動日期: ${startdate} ~ ${enddate}</H2>		
 
 		
 		
 		節目簡介:
 		<P>${description}</P><br><br>
 		
-		<br><br><input type="submit" class="btn btn-outline-info" value="購買">
+		圖片:
+		<img style='display:block;width:800px;' src="data:image/jpg;base64,${photo}" >
+
+	
 		
 		
 		
+
 		
+				<H2>票券資訊</H2>
+		<table class="table table-bordered">
+		<tr> 
+				<td>節目名稱</td>
+				<td>票種</td>
+				<td>座位</td>
+				<td>票價</td>
+				
+
+			</tr>
+			<tr> 
+				<td class="title">${title}</td>
+				<td>半票</td>
+				<td>自行劃位</td>
+				<td>NT$1000</td>
+				
+			</tr>
+						<tr> 
+				<td class="title">${title}</td>
+				<td>全票</td>
+				<td>自行劃位</td>
+				<td>NT$2000</td>
+				
+			</tr>
+		</table>
 		
+				<br><br><input type="submit" class="btn btn-outline-info" value="購買">
+
 		</form>
 		
 		

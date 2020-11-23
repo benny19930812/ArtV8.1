@@ -85,18 +85,19 @@
 			<c:forEach items="${currentPage}" var="show" varStatus="idx">
 				<tr>
 <!-- 					傳送訂單資訊 -->
-					<form method=GET action="<c:url value='/04/showDetail'/>">
+					<form method="GET" action="<c:url value='/04/showDetail.ctrl'/>">
 					<td>${show.startdate}~ ${show.enddate}</td>
 					<td>${show.title}</td>
 					<td>${show.site}</td>
 					<td><input type=SUBMIT value="購買" class="btn btn-outline-info"></td>
 <!-- 					這些隱藏欄位都會送到後端 -->
-					<Input type='hidden' name='title' value='${show.title}'>
+<%-- 					<Input type='hidden' name='title' value='${show.title}'> --%>
 					<Input type='hidden' name='actid' value='${show.no}'>
-					<Input type='hidden' name='site' value='${show.site}'>
-					<Input type='hidden' name='startdate' value='${show.startdate}'>
-					<Input type='hidden' name='enddate' value='${show.enddate}'>
-					<Input type='hidden' name='description' value='${show.description}'>
+<%-- 					<Input type='hidden' name='site' value='${show.site}'> --%>
+<%-- 					<Input type='hidden' name='startdate' value='${show.startdate}'> --%>
+<%-- 					<Input type='hidden' name='enddate' value='${show.enddate}'> --%>
+<%-- 					<Input type='hidden' name='description' value='${show.description}'> --%>
+<%-- 					<Input type='hidden' name='photo' value='${show.photo}'> --%>
 
 					</form>
 					</tr>

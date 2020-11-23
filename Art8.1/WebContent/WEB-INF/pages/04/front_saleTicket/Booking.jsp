@@ -97,6 +97,8 @@ td {
 		<P>${sessionScope.description}</P><br><br>
 		
 		<H2>訂購票券</H2>
+		<input type="button" class="btn btn-outline-info" value="電腦劃位">
+		<input type="button" class="btn btn-outline-info" value="自行劃位">
 		<table class="table table-bordered">
 		<tr> 
 				<td>節目名稱</td>
@@ -111,8 +113,8 @@ td {
 				<td>半票</td>
 				<td>自行劃位</td>
 				<td>NT$1000</td>
-				<td><input type="button" value="-" name="minus" class="" id="minus"> 
-					<input type="text" name="adultnum"id="adultnum" class="adultnum" value="" readonly="readonly"> 
+				<td><input type="button" value="-" name="minus" class="" id="minus"> 					
+					<input type="text" name="halfnum" id="halfnum" class="halfnum"value="" readonly="readonly"> 
 					<input type="button" value="+" name="plus" class="" id="plus">
 				</td>
 			</tr>
@@ -122,7 +124,7 @@ td {
 				<td>自行劃位</td>
 				<td>NT$2000</td>
 				<td><input type="button" value="-" name="minus2" class="" id="minus2">
-					<input type="text" name="halfnum" id="halfnum" class="halfnum"value="" readonly="readonly"> 
+					<input type="text" name="adultnum"id="adultnum" class="adultnum" value="" readonly="readonly"> 
 					<input type="button" value="+" name="plus2"class="" id="plus2" >
 				</td>
 			</tr>
@@ -189,79 +191,134 @@ td {
 		crossorigin="anonymous"></script>
 
 	<script>
-		//全票
-		$(document).ready(
-				function() {
-					/* 價格顯示 */
+	$(document).ready(
+			function() {
+				
+				//半票
+				var count = 0;
+				$("#halfnum").val(count);
+				$("#plus").click(
+						function() {
+							if (count < 4) {
+								count++;
+							} else if (count = 4) {
+								count = 4;
+								alert("最多訂購4張");
+							}
+							$("#halfnum").val(count);
+						})
+				$("#minus").click(
+						function() {
+							if (count > 0) {
+								count--;
+							} else if (count = 0) {
+								count2 = 0;
+							}
+							$("#halfnum").val(count);
+							
+						})
+						
+				//全票
+				var count2 = 0;
+				$("#adultnum").val(count2);
+				$("#plus2").click(
+						function() {
+							//設定數量上限為4
+							if (count2 < 4) {
+								count2++;
+							} else if (count2 = 4 ) {
+								count2 = 4;
+								alert("最多訂購4張");
+							}
+							$("#adultnum").val(count2);
 
-					/* $("select").change(function(){
-						  $("#price").text("500");
-						}); */
+						})
+				$("#minus2").click(
+						function() {
+							//設定數量下限0
+							if (count2 > 0) {
+								count2--;
+							} else if (count2 = 0) {
+								count2 = 0;
+							}
+							$("#adultnum").val(count2);
+							return count2;
+						})					
 
-					var count = 0;
-					$("#adultnum").val(count);
-					$("#plus").click(
-							function() {
-								//設定數量上限為4
-								if (count < 4) {
-									count++;
-								} else if (count = 4) {
-									count = 4;
-									alert("最多訂購四張");
-								}
-								$("#adultnum").val(count);
-								$("#total1").val(count * parseInt(1000))
-								$("#total3").val(
-										count * parseInt(1000) + count2
-												* parseInt(500))
-							})
-					$("#minus").click(
-							function() {
-								//設定數量下限0
-								if (count > 0) {
-									count--;
-								} else if (count = 0) {
-									count = 0;
-								}
-								$("#adultnum").val(count);
-								$("#total1").val(count * parseInt(1000))
-								$("#total3").val(
-										count * parseInt(1000) + count2
-												* parseInt(500))
-								return count;
-							})
-					var count2 = 0;
-					$("#halfnum").val(count2);
-					$("#plus2").click(
-							function() {
-								if (count2 < 4) {
-									count2++;
-								} else if (count2 = 4) {
-									count2 = 4;
-									alert("最多訂購五張");
-								}
-								$("#halfnum").val(count2);
-								$("#total2").val(count2 * parseInt(500))
-								$("#total3").val(
-										count * parseInt(1000) + count2
-												* parseInt(500))
-							})
-					$("#minus2").click(
-							function() {
-								if (count2 > 0) {
-									count2--;
-								} else if (count2 = 0) {
-									count2 = 0;
-								}
-								$("#halfnum").val(count2);
-								$("#total2").val(count2 * parseInt(500))
-								$("#total3").val(
-										count * parseInt(1000) + count2
-												* parseInt(500))
-							})
+			})
 
-				})
-		//半票
+
+
+
+	
+// 		//全票
+// 		$(document).ready(
+// 				function() {
+// 					var count = 0;
+// 					$("#adultnum").val(count);
+// 					$("#plus").click(
+// 							function() {
+// 								//設定數量上限為4
+// 								if (count < 4) {
+// 									count++;
+// 								} else if (count = 4) {
+// 									count = 4;
+// 									alert("最多訂購6張");
+// 								}
+// 								$("#adultnum").val(count);
+// 								$("#total1").val(count * parseInt(1000))
+// 								$("#total3").val(
+// 										count * parseInt(1000) + count2
+// 												* parseInt(500))
+// 							})
+// 					$("#minus").click(
+// 							function() {
+// 								//設定數量下限0
+// 								if (count > 0) {
+// 									count--;
+// 								} else if (count = 0) {
+// 									count = 0;
+// 								}
+// 								$("#adultnum").val(count);
+// 								$("#total1").val(count * parseInt(1000))
+// 								$("#total3").val(
+// 										count * parseInt(1000) + count2
+// 												* parseInt(500))
+// 								return count;
+// 							})
+// 					//半票
+// 					var count2 = 0;
+// 					$("#halfnum").val(count2);
+// 					$("#plus2").click(
+// 							function() {
+// 								if (count2 < 4) {
+// 									count2++;
+// 								} else if (count2 = 4) {
+// 									count2 = 4;
+// 									alert("最多訂購6張");
+// 								}
+// 								$("#halfnum").val(count2);
+// 								$("#total2").val(count2 * parseInt(500))
+// 								$("#total3").val(
+// 										count * parseInt(1000) + count2
+// 												* parseInt(500))
+// 							})
+// 					$("#minus2").click(
+// 							function() {
+// 								if (count2 > 0) {
+// 									count2--;
+// 								} else if (count2 = 0) {
+// 									count2 = 0;
+// 								}
+// 								$("#halfnum").val(count2);
+// 								$("#total2").val(count2 * parseInt(500))
+// 								$("#total3").val(
+// 										count * parseInt(1000) + count2
+// 												* parseInt(500))
+// 							})
+
+// 				})
+		
 	</script>
 
 </body>

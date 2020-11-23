@@ -187,7 +187,8 @@
  			//隱藏選取框
  			$(this).css("border-color", "#FFFFFF")
  		}).click(function() {
- 			if ($(this).attr("src") == "<c:url value='/images/04/sofaOff.png' />") {
+ 			//座位數量大於4無法選取(換圖片)
+ 			if ($(this).attr("src") == "<c:url value='/images/04/sofaOff.png' />" && $(".seat").length <4) {
  	 			//換成選取座位圖
  				$(this).attr("src", "<c:url value='/images/04/sofaTick.png' />")		
  				//新增td		
@@ -196,7 +197,7 @@
 				//顯示數量
  				$("#selectnum").text($(".seat").length);
  				$("#selectnum2").val($(".seat").length); 				
- 				if ($(".seat").length ==4) {
+ 				if ($(".seat").length ===4) {
  					alert("已經選擇四個座位");
  					
 				}
