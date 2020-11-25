@@ -41,13 +41,6 @@
        
 
     </style>
-<!-- <!-- CSS --> -->
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> -->
-
-<!-- <!-- jQuery and JS bundle w/ Popper.js --> -->
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> -->
-
 
 </head>
 
@@ -74,7 +67,7 @@
 
 <div class="container">
 
-<table>
+<br><br><table>
 	<tr >
 		<td class="progressbar">Step 1</td>
 		<td class="progressbar">Step 2</td>
@@ -97,7 +90,7 @@
 		<td>購票確認</td>
 		<td>完成訂購</td>
 	</tr>
-	</table>
+	</table><br>
 
 
     <H1>訂購人資訊</H1>
@@ -142,7 +135,7 @@
 				<td>票種</td>
 				<td>座位</td>
 				<td>票價</td>
-				<td>數量</td>
+				<td>操作</td>
 
 			</tr>
 			<tr> 
@@ -150,9 +143,7 @@
 				<td>半票</td>
 				<td></td>
 				<td>NT$1000</td>
-				<td><input type="button" value="-" name="minus" class="" id="minus"> 
-					<input type="text" name="adultnum"id="adultnum" class="adultnum" value="" readonly="readonly"> 
-					<input type="button" value="+" name="plus" class="" id="plus">
+				<td><input type="button" value="刪除" name="" class="" id=""> 				
 				</td>
 			</tr>
 						<tr> 
@@ -160,71 +151,11 @@
 				<td>全票</td>
 				<td></td>
 				<td>NT$2000</td>
-				<td><input type="button" value="-" name="minus2" class="" id="minus2">
-					<input type="text" name="halfnum" id="halfnum" class="halfnum"value="" readonly="readonly"> 
-					<input type="button" value="+" name="plus2"class="" id="plus2" >
+				<td><input type="button" value="刪除" name="" class="" id=""> 						
 				</td>
 			</tr>
 		</table>	
-		
-		
-		
-<!-- 		<H2>訂購票券</H2> -->
-<!--       <table class= "table table-bordered">   -->
-<!--         <tr> -->
-<!--             <td class="title">節目名稱</td> -->
-<!--             <td>票種</td> -->
-<!--             <td>數量</td> -->
-<!--             <td >價格</td> -->
-<!--             <td class="price2">總價</td> -->
-<!-- <!--             <td>操作</td> --> 
-<!--         </tr> -->
-<%--         使用JSTL 執行for loop ${show.no}取map內value --%>
-<%--         <c:set var="sum" value="${0}"/>  --%>
-<%--         <c:forEach items="${cartlist}" var="show" varStatus="idx"> --%>
-<!--        傳送訂單資訊 -->
-        
-<!-- 		<tr> -->
-<%--             <td>${show.title}</td> --%>
-<!--             <td>全票</td> -->
-<!--              <td> -->
-<!--                 <input type="button" value="-" name="minus" class="minus" id="minus"> -->
-<%--                 <input type="text" name="adultnum" id="adultnum" class="adultnum" value="${show.adultnum}" > --%>
-<!--                 <input type="button" value="+" name="plus" class="plus" id="plus"> -->
-<!--             </td> -->
-<!--            <td name="price" class="price" id="price" >NT$1000</td> -->
 
-<%--             <td>NT$<input type="text" name="total1" id="total1" class="total1"value="${show.total1}" readonly="readonly" /></td> --%>
-
-
-<!-- <!--             <td > --> 
-<!-- <!--             <input type="button" value="修改" name="submit" class="submit" id="submit"  > -->
-<!-- <!--             <input type="button" value="刪除" name="submit" class="submit" id="submit"  ></td> --> 
-<!--          </tr> -->
-      
-<!--          <tr> -->
-<%--             <td>${show.title}</td> --%>
-<!--             <td>半票</td> -->
-<!--             <td> -->
-<!--                 <input type="button" value="-" name="minus2" class="minus2" id="minus2"> -->
-<%--                 <input type="text" name="halfnum" id="halfnum" class="halfnum" value="${show.halfnum}" > --%>
-<!--                 <input type="button" value="+" name="plus2" class="plus2" id="plus2"> -->
-<!--             </td> -->
-            
-<!--             <td name="price" class="price" id="price" >NT$500</td> -->
-<%--             <td>NT$<input type="text" name="total2" id="total2" class="total2"value="${show.total2}" readonly="readonly" /></td> --%>
-<!-- <!--             <td > -->
-<!-- <!--             <input type="button" value="修改" name="submit" class="submit" id="submit"  > --> 
-<%-- <%--             <input type="button" value="刪除" name="submit" class="submit" id="submit" onclick="<c:url value='/_04_ShopCart/DelectCart'/>"></td> --%> 
-<!--         </tr> -->
-			
-<!-- <!-- 		設定totalprice加總 --> 
-<%-- <%-- 		<c:set var="sum" value="${sum + show.totalprice}" scope="session" /> --%> 
-<%-- 		<c:set var="sum" value="${sum + show.totalprice}"  /> --%>
-<%-- 		</c:forEach> --%>
-<%-- <tr><td>總計</td><td></td><td></td><td></td><td>NT$<input type="text" name="total3" id="total3" class="totalprice"value="${sum}" readonly="readonly" /></td><tr> --%>
-
-<!--    </table>      -->
           <input type="submit" value="繼續購票" name="1" class="btn btn-outline-info" id="1">  
     	 </form>
    		<form name="order" action="<c:url value='/_04_ShopCart/ClearCart'/>" method="POST">

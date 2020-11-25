@@ -54,7 +54,7 @@
 
 <div class="container">
 <form name="order" action="<c:url value='/04/shoppingcart.ctrl'/>" method="get">
-	<table>
+	<br><br><table>
 	<tr >
 		<td class="progressbar">Step 1</td>
 		<td class="progressbar">Step 2</td>
@@ -77,7 +77,7 @@
 		<td>購票確認</td>
 		<td>完成訂購</td>
 	</tr>
-	</table>
+	</table><br>
 	
 	
 	<h1 id=ticketnum>${sessionScope.shoppingcart.TICKET_NUM}</h1>
